@@ -1,7 +1,9 @@
-package dev._x.Cadastro;
+package dev._x.Cadastro.Ninjas;
 
+import dev._x.Cadastro.Missoes.MissoesModel;
 import jakarta.persistence.*;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
+
+import java.util.List;
 
 @Entity
 @Table(name = "tb_cadastro")
@@ -12,6 +14,11 @@ public class NinjaModel {
     private String nome;
     private String email;
     private int idade;
+    @ManyToOne
+    @JoinColumn(name = "missoes_id")
+    private MissoesModel missoes;
+
+
 
     public NinjaModel() {
     }
